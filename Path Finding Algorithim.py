@@ -17,6 +17,7 @@ ORANGE = (255, 165 ,0)
 GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
 
+# Create class for individually marking spots within datasets
 class Spot:
 	def __init__(self, row, col, width, total_rows):
 		self.row = row
@@ -87,12 +88,11 @@ class Spot:
 	def __lt__(self, other):
 		return False
 
-
+# Find the slope between two points in time
 def h(p1, p2):
 	x1, y1 = p1
 	x2, y2 = p2
 	return abs(x1 - x2) + abs(y1 - y2)
-
 
 def reconstruct_path(came_from, current, draw):
 	while current in came_from:
